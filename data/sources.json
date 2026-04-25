@@ -1,0 +1,94 @@
+{
+  "sources": [
+    {
+      "id": "frey-osborne",
+      "name": "Frey & Osborne Automation Scores",
+      "shortName": "Frey-Osborne 2013",
+      "url": "https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf",
+      "description": "Automation probability scores for 702 US occupations. Adapted to ISCO-08 major groups with LMIC calibration.",
+      "year": 2013,
+      "coverage": "702 US occupations, mapped to ISCO-08"
+    },
+    {
+      "id": "ilo-ilostat",
+      "name": "ILO ILOSTAT",
+      "shortName": "ILO ILOSTAT",
+      "url": "https://ilostat.ilo.org/",
+      "description": "Wage, employment, and labor force participation data by country and sector.",
+      "year": 2023,
+      "coverage": "190+ countries"
+    },
+    {
+      "id": "ilo-task-indices",
+      "name": "ILO Future of Work Task Indices",
+      "shortName": "ILO Task Indices",
+      "url": "https://www.ilo.org/global/research/global-reports/world-employment-social-outlook/",
+      "description": "Task-content indices (routine vs. non-routine, cognitive vs. manual) by occupation for 40+ countries.",
+      "year": 2023,
+      "coverage": "ISCO major groups, 40+ countries"
+    },
+    {
+      "id": "wdi",
+      "name": "World Bank World Development Indicators",
+      "shortName": "World Bank WDI",
+      "url": "https://data.worldbank.org/indicator",
+      "description": "Education, employment, and poverty indicators across LMICs.",
+      "year": 2023,
+      "coverage": "217 economies"
+    },
+    {
+      "id": "hci",
+      "name": "World Bank Human Capital Index",
+      "shortName": "World Bank HCI",
+      "url": "https://www.worldbank.org/en/publication/human-capital",
+      "description": "Learning-adjusted years of schooling — accounts for quality, not just quantity of education.",
+      "year": 2020,
+      "coverage": "174 countries"
+    },
+    {
+      "id": "wittgenstein",
+      "name": "Wittgenstein Centre Education Projections",
+      "shortName": "Wittgenstein 2023",
+      "url": "https://dataexplorer.wittgensteincentre.org/",
+      "description": "Education level projections by country, age, and sex to 2100. Uses SSP2 scenario.",
+      "year": 2023,
+      "coverage": "201 countries to 2100"
+    },
+    {
+      "id": "esco",
+      "name": "ESCO Skills Taxonomy (EU)",
+      "shortName": "ESCO v1.2",
+      "url": "https://esco.ec.europa.eu/en/use-esco/download",
+      "description": "Multilingual skills and occupation taxonomy for portable, cross-border skills profiles.",
+      "year": 2023,
+      "coverage": "3,008 occupations, 13,890 skills, 27 EU languages"
+    },
+    {
+      "id": "isco-08",
+      "name": "ILO ISCO-08",
+      "shortName": "ISCO-08",
+      "url": "https://www.ilo.org/public/english/bureau/stat/isco/isco08/",
+      "description": "International Standard Classification of Occupations — backbone for skills taxonomy.",
+      "year": 2008,
+      "coverage": "Global standard, 436 unit groups"
+    },
+    {
+      "id": "itu",
+      "name": "ITU Digital Development",
+      "shortName": "ITU 2023",
+      "url": "https://www.itu.int/en/ITU-D/Statistics/Pages/default.aspx",
+      "description": "Mobile broadband and internet penetration — essential for calibrating digital readiness.",
+      "year": 2023,
+      "coverage": "193 countries"
+    },
+    {
+      "id": "wbes",
+      "name": "World Bank Enterprise Surveys",
+      "shortName": "WBES 2022",
+      "url": "https://www.enterprisesurveys.org/",
+      "description": "Firm-level data on employment, labor practices, skills constraints, and perceptions.",
+      "year": 2022,
+      "coverage": "150+ countries"
+    }
+  ]
+}

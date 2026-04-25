@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "home": "Nyumbani",
+    "profile": "Ujuzi Wangu",
+    "readiness": "Utayari wa AI",
+    "opportunities": "Fursa",
+    "dashboard": "Dashibodi ya Programu",
+    "switchCountry": "Badilisha Nchi"
+  },
+  "landing": {
+    "tagline": "Kufunga umbali kati ya ujuzi halisi na fursa za kiuchumi.",
+    "subtitle": "Kama una ujuzi lakini hakuna mwajiri anayejua upo — UNMAPPED ni kwa ajili yako.",
+    "cta": "Ramani Ujuzi Wako",
+    "ctaSecondary": "Tazama Dashibodi ya Programu",
+    "moduleTitle1": "Injini ya Ujuzi",
+    "moduleDesc1": "Ramani ujuzi wako wa kawaida kwa viwango vinavyotambuliwa kimataifa.",
+    "moduleTitle2": "Lenzi ya Utayari wa AI",
+    "moduleDesc2": "Elewa hatari yako ya otomeshaji na jinsi ya kujenga ustahimilivu.",
+    "moduleTitle3": "Kulinganisha Fursa",
+    "moduleDesc3": "Pata fursa za kweli zinazofaa ujuzi wako halisi."
+  },
+  "wizard": {
+    "step1Title": "Muktadha Wako",
+    "step2Title": "Kazi Yako",
+    "step3Title": "Ujuzi Wako",
+    "next": "Endelea",
+    "back": "Rudi",
+    "submit": "Tengeneza Wasifu Wangu wa Ujuzi",
+    "country": "Nchi",
+    "age": "Umri Wako",
+    "education": "Kiwango cha Juu cha Elimu",
+    "sector": "Sekta Yako Kuu / Eneo la Kazi",
+    "years": "Miaka ya Uzoefu",
+    "jobTitle": "Jina la Kazi au Nafasi Yako",
+    "freeText": "Kwa maneno yako mwenyewe, unafanya nini na unajua kufanya nini?",
+    "competencies": "Ni yapi kati ya haya unayofanya katika kazi yako?",
+    "generating": "Inazalisha wasifu wako wa ujuzi..."
+  },
+  "profile": {
+    "title": "Wasifu Wako wa Ujuzi",
+    "occupation": "Kazi (ISCO-08)",
+    "portability": "Alama ya Uhamishaji",
+    "portabilityDesc": "Jinsi ujuzi wako unavyoweza kuhamia kati ya mipaka na sekta",
+    "escoSkills": "Ujuzi Uliochaguliwa",
+    "softSkills": "Ujuzi Unaoweza Kuhamia",
+    "informalAssets": "Mali za Kawaida",
+    "download": "Pakua PDF",
+    "share": "Nakili Kiungo",
+    "viewReadiness": "Angalia Utayari Wangu wa AI →",
+    "durabilityHigh": "Uimara wa juu — sugu dhidi ya otomeshaji",
+    "durabilityModerate": "Uimara wa wastani",
+    "durabilityAtRisk": "Hatarini kutokana na otomeshaji"
+  },
+  "readiness": {
+    "title": "Utayari wa AI na Hatari ya Kuhama Kazi",
+    "riskGaugeTitle": "Hatari ya Otomeshaji (Iliyoratibishwa kwa LMIC)",
+    "riskLow": "Hatari Ndogo",
+    "riskModerate": "Hatari ya Wastani",
+    "riskHigh": "Hatari Kubwa",
+    "taskTitle": "Muhtasari wa Maudhui ya Kazi",
+    "adjacentTitle": "Ujuzi Unaojenga Ustahimilivu",
+    "wittgensteinTitle": "Mkoa Wako Unaelekea Wapi",
+    "honestLimits": "Tathmini hii inatumia alama za otomeshaji za Frey & Osborne (2013) zilizoratibishwa kwa muktadha wa LMIC. Tibu hii kama ishara ya mwelekeo, si utabiri.",
+    "calibrationNote": "Maelezo ya uratibishaji",
+    "viewOpportunities": "Angalia Fursa Zangu →"
+  },
+  "opportunities": {
+    "title": "Fursa Zako",
+    "matchScore": "mechi",
+    "wageRange": "Mwelekeo wa mapato ya kweli",
+    "pathway": "Njia yako",
+    "skillGaps": "Ujuzi wa kuziba pengo",
+    "viewDashboard": "Angalia Dashibodi ya Programu"
+  },
+  "dashboard": {
+    "title": "Dashibodi ya Afisa wa Programu",
+    "subtitle": "Mtazamo wa jumla wa wasifu wa ujuzi katika kikao hiki",
+    "totalProfiles": "Wasifu Jumla",
+    "avgRisk": "Hatari ya Wastani ya Otomeshaji",
+    "avgPortability": "Alama ya Wastani ya Uhamishaji",
+    "topGaps": "Mapungufu Makuu ya Ujuzi",
+    "sectorDist": "Usambazaji wa Sekta",
+    "econSignals": "Ishara Kuu za Kiuchumi",
+    "noProfiles": "Hakuna wasifu bado katika kikao hiki. Kamilisha Mchawi wa Ujuzi kuanza."
+  },
+  "common": {
+    "source": "Chanzo",
+    "year": "Mwaka",
+    "usd": "USD/mwezi",
+    "loading": "Inapakia...",
+    "error": "Kuna tatizo.",
+    "back": "Rudi",
+    "close": "Funga"
+  }
+}

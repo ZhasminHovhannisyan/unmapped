@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "home": "Home",
+    "profile": "My Skills",
+    "readiness": "AI Readiness",
+    "opportunities": "Opportunities",
+    "dashboard": "Program Dashboard",
+    "switchCountry": "Switch Context"
+  },
+  "landing": {
+    "tagline": "Closing the distance between real skills and economic opportunity.",
+    "subtitle": "If you have skills but no employer knows you exist — UNMAPPED is for you.",
+    "cta": "Map Your Skills",
+    "ctaSecondary": "View Program Dashboard",
+    "moduleTitle1": "Skills Signal Engine",
+    "moduleDesc1": "Map your informal skills to internationally recognised standards.",
+    "moduleTitle2": "AI Readiness Lens",
+    "moduleDesc2": "Understand your automation risk and how to build resilience.",
+    "moduleTitle3": "Opportunity Matching",
+    "moduleDesc3": "Find honest, reachable opportunities matched to your actual skills."
+  },
+  "wizard": {
+    "step1Title": "Your Context",
+    "step2Title": "Your Work",
+    "step3Title": "Your Skills",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Generate My Skills Profile",
+    "country": "Country",
+    "age": "Your Age",
+    "education": "Highest Education Level",
+    "sector": "Your Main Sector / Work Area",
+    "years": "Years of Experience",
+    "jobTitle": "Your Job or Role Title",
+    "freeText": "In your own words, what do you actually do and know how to do?",
+    "competencies": "Which of these do you do in your work? (select all that apply)",
+    "generating": "Generating your skills profile..."
+  },
+  "profile": {
+    "title": "Your Skills Profile",
+    "occupation": "Occupation (ISCO-08)",
+    "portability": "Portability Score",
+    "portabilityDesc": "How transferable your skills are across borders and sectors",
+    "escoSkills": "Mapped Skills",
+    "softSkills": "Transferable Skills",
+    "informalAssets": "Informal Assets",
+    "download": "Download PDF",
+    "share": "Copy Link",
+    "viewReadiness": "See My AI Readiness →",
+    "durabilityHigh": "High durability — automation-resistant",
+    "durabilityModerate": "Moderate durability",
+    "durabilityAtRisk": "At risk from automation"
+  },
+  "readiness": {
+    "title": "AI Readiness & Displacement Risk",
+    "riskGaugeTitle": "Automation Risk (LMIC-Adjusted)",
+    "riskLow": "Low Risk",
+    "riskModerate": "Moderate Risk",
+    "riskHigh": "High Risk",
+    "taskTitle": "Task Content Breakdown",
+    "adjacentTitle": "Skills That Build Resilience",
+    "wittgensteinTitle": "Where Your Region Is Heading",
+    "honestLimits": "This assessment uses Frey & Osborne (2013) automation scores calibrated for LMIC context. Automation risk in informal economies is harder to measure than in formal ones — treat this as a directional signal, not a prediction.",
+    "calibrationNote": "Calibration note",
+    "viewOpportunities": "See My Opportunities →"
+  },
+  "opportunities": {
+    "title": "Your Opportunities",
+    "matchScore": "match",
+    "wageRange": "Realistic earnings range",
+    "pathway": "Your pathway",
+    "skillGaps": "Skills to bridge",
+    "viewDashboard": "View Program Dashboard"
+  },
+  "dashboard": {
+    "title": "Program Officer Dashboard",
+    "subtitle": "Aggregate view of skills profiles in this session",
+    "totalProfiles": "Total Profiles",
+    "avgRisk": "Avg. Automation Risk",
+    "avgPortability": "Avg. Portability Score",
+    "topGaps": "Top Skill Gaps",
+    "sectorDist": "Sector Distribution",
+    "econSignals": "Key Economic Signals",
+    "noProfiles": "No profiles yet in this session. Complete the Skills Wizard to start."
+  },
+  "common": {
+    "source": "Source",
+    "year": "Year",
+    "usd": "USD/month",
+    "loading": "Loading...",
+    "error": "Something went wrong.",
+    "back": "Back",
+    "close": "Close"
+  }
+}

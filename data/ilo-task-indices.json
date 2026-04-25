@@ -1,0 +1,98 @@
+{
+  "_source": "ILO Future of Work — Task Content Indices by ISCO Major Group. Based on ILO (2018) World Employment and Social Outlook: Greening with Jobs & Future of Work datasets.",
+  "_url": "https://www.ilo.org/global/research/global-reports/world-employment-social-outlook/lang--en/index.htm",
+  "_year": 2023,
+  "_note": "Values are relative shares (0–1) of task content within each occupational group. Routine and manual tasks are highest automation exposure.",
+  "byIscoMajorGroup": {
+    "1": {
+      "label": "Managers",
+      "routineManual": 0.05,
+      "routineCognitive": 0.20,
+      "nonRoutineManual": 0.10,
+      "nonRoutineCognitive": 0.45,
+      "social": 0.20,
+      "durabilityLabel": "High durability",
+      "durabilityScore": 82
+    },
+    "2": {
+      "label": "Professionals",
+      "routineManual": 0.04,
+      "routineCognitive": 0.18,
+      "nonRoutineManual": 0.08,
+      "nonRoutineCognitive": 0.52,
+      "social": 0.18,
+      "durabilityLabel": "High durability",
+      "durabilityScore": 85
+    },
+    "3": {
+      "label": "Technicians & Associate Professionals",
+      "routineManual": 0.14,
+      "routineCognitive": 0.28,
+      "nonRoutineManual": 0.18,
+      "nonRoutineCognitive": 0.28,
+      "social": 0.12,
+      "durabilityLabel": "Moderate durability",
+      "durabilityScore": 60
+    },
+    "4": {
+      "label": "Clerical Support Workers",
+      "routineManual": 0.08,
+      "routineCognitive": 0.55,
+      "nonRoutineManual": 0.05,
+      "nonRoutineCognitive": 0.22,
+      "social": 0.10,
+      "durabilityLabel": "At risk",
+      "durabilityScore": 30
+    },
+    "5": {
+      "label": "Service and Sales Workers",
+      "routineManual": 0.22,
+      "routineCognitive": 0.20,
+      "nonRoutineManual": 0.28,
+      "nonRoutineCognitive": 0.12,
+      "social": 0.18,
+      "durabilityLabel": "Moderate durability",
+      "durabilityScore": 55
+    },
+    "6": {
+      "label": "Skilled Agricultural Workers",
+      "routineManual": 0.38,
+      "routineCognitive": 0.14,
+      "nonRoutineManual": 0.34,
+      "nonRoutineCognitive": 0.08,
+      "social": 0.06,
+      "durabilityLabel": "Moderate durability",
+      "durabilityScore": 48
+    },
+    "7": {
+      "label": "Craft and Trades Workers",
+      "routineManual": 0.30,
+      "routineCognitive": 0.12,
+      "nonRoutineManual": 0.40,
+      "nonRoutineCognitive": 0.10,
+      "social": 0.08,
+      "durabilityLabel": "Moderate durability",
+      "durabilityScore": 52
+    },
+    "8": {
+      "label": "Plant & Machine Operators",
+      "routineManual": 0.48,
+      "routineCognitive": 0.20,
+      "nonRoutineManual": 0.22,
+      "nonRoutineCognitive": 0.06,
+      "social": 0.04,
+      "durabilityLabel": "At risk",
+      "durabilityScore": 28
+    },
+    "9": {
+      "label": "Elementary Occupations",
+      "routineManual": 0.58,
+      "routineCognitive": 0.12,
+      "nonRoutineManual": 0.22,
+      "nonRoutineCognitive": 0.04,
+      "social": 0.04,
+      "durabilityLabel": "At risk",
+      "durabilityScore": 22
+    }
+  }
+}

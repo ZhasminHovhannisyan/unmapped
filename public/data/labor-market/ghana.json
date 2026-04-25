@@ -1,0 +1,99 @@
+{
+  "_sources": {
+    "ilostat": { "name": "ILO ILOSTAT", "url": "https://ilostat.ilo.org/", "year": 2023 },
+    "wdi": { "name": "World Bank WDI", "url": "https://data.worldbank.org/indicator", "year": 2023 },
+    "hci": { "name": "World Bank Human Capital Index", "url": "https://www.worldbank.org/en/publication/human-capital", "year": 2020 },
+    "wbes": { "name": "World Bank Enterprise Surveys", "url": "https://www.enterprisesurveys.org/", "year": 2022 }
+  },
+  "econSignals": [
+    {
+      "signalType": "sector_growth",
+      "label": "Fastest Growing Sector: ICT & Digital Services",
+      "value": 11.2,
+      "unit": "% annual employment growth (2018–2023)",
+      "source": "ILO ILOSTAT",
+      "sourceUrl": "https://ilostat.ilo.org/",
+      "year": 2023,
+      "description": "Ghana's ICT sector grew at 11.2% per year from 2018–2023, outpacing all other sectors. Mobile money agent and digital freelance work are the fastest entry points."
+    },
+    {
+      "signalType": "sector_growth",
+      "label": "Agro-processing Sector Employment Growth",
+      "value": 6.4,
+      "unit": "% annual employment growth (2018–2023)",
+      "source": "ILO ILOSTAT",
+      "sourceUrl": "https://ilostat.ilo.org/",
+      "year": 2023,
+      "description": "Cocoa processing, shea butter, and food packaging have driven strong employment growth. Most entry-level roles require technical skills, not degrees."
+    },
+    {
+      "signalType": "wage_floor",
+      "label": "Median Monthly Earnings — ICT / Tech Repair",
+      "value": 280,
+      "unit": "USD/month (median)",
+      "source": "ILO ILOSTAT / World Bank WDI",
+      "sourceUrl": "https://ilostat.ilo.org/",
+      "year": 2023,
+      "description": "Skilled electronics repair and IT support workers in Accra earn a median of ~GHS 3,500/month ($280 USD). Range: $180–$480 depending on specialisation."
+    },
+    {
+      "signalType": "wage_floor",
+      "label": "Median Monthly Earnings — Market Trade & Retail",
+      "value": 145,
+      "unit": "USD/month (median)",
+      "source": "ILO ILOSTAT",
+      "sourceUrl": "https://ilostat.ilo.org/",
+      "year": 2023,
+      "description": "Self-employed traders in Accra's informal markets earn a median of ~GHS 1,800/month ($145 USD). Highly variable by sector and location."
+    },
+    {
+      "signalType": "returns_to_education",
+      "label": "Returns to Upper Secondary Education",
+      "value": 28,
+      "unit": "% earnings premium over primary-only workers",
+      "source": "World Bank Human Capital Index / WDI",
+      "sourceUrl": "https://www.worldbank.org/en/publication/human-capital",
+      "year": 2020,
+      "description": "Workers with upper secondary (SHS/WASSCE) credentials earn ~28% more than primary-only workers in Ghana. Post-secondary adds a further 45% premium."
+    },
+    {
+      "signalType": "neet_rate",
+      "label": "Youth NEET Rate (not in education, employment, or training)",
+      "value": 27.4,
+      "unit": "% of youth 15–24",
+      "source": "World Bank WDI (SL.UEM.NEET.ZS)",
+      "sourceUrl": "https://data.worldbank.org/indicator/SL.UEM.NEET.ZS",
+      "year": 2022,
+      "description": "Over 1 in 4 Ghanaian youth aged 15–24 are not in education, employment, or training — representing a major pool of unrecognised skill and untapped potential."
+    },
+    {
+      "signalType": "employment_growth",
+      "label": "Formal Employment Share",
+      "value": 15,
+      "unit": "% of total employment",
+      "source": "ILO ILOSTAT",
+      "sourceUrl": "https://ilostat.ilo.org/",
+      "year": 2022,
+      "description": "Only 15% of Ghana's workforce is in formal employment — meaning the vast majority of opportunity lies in supported self-employment, informal sector, and gig work."
+    }
+  ],
+  "wageRangesBySector": {
+    "ict_repair":       { "min": 180, "max": 480, "median": 280, "currency": "USD", "year": 2023 },
+    "trade_retail":     { "min": 80,  "max": 280, "median": 145, "currency": "USD", "year": 2023 },
+    "agriculture":      { "min": 60,  "max": 200, "median": 110, "currency": "USD", "year": 2023 },
+    "construction":     { "min": 100, "max": 320, "median": 190, "currency": "USD", "year": 2023 },
+    "transport":        { "min": 90,  "max": 250, "median": 160, "currency": "USD", "year": 2023 },
+    "hospitality":      { "min": 80,  "max": 200, "median": 130, "currency": "USD", "year": 2023 },
+    "finance_mobile":   { "min": 120, "max": 350, "median": 210, "currency": "USD", "year": 2023 },
+    "health_community": { "min": 110, "max": 280, "median": 180, "currency": "USD", "year": 2023 },
+    "education_tutoring":{ "min": 130, "max": 300, "median": 200, "currency": "USD", "year": 2023 },
+    "creative_media":   { "min": 100, "max": 400, "median": 200, "currency": "USD", "year": 2023 }
+  },
+  "sectorGrowthRanking": [
+    { "sector": "ICT & Digital Services", "annualGrowthPct": 11.2, "source": "ILO ILOSTAT 2023" },
+    { "sector": "Agro-processing", "annualGrowthPct": 6.4, "source": "ILO ILOSTAT 2023" },
+    { "sector": "Financial Services (Mobile Money)", "annualGrowthPct": 5.8, "source": "World Bank WDI 2023" },
+    { "sector": "Construction", "annualGrowthPct": 4.2, "source": "ILO ILOSTAT 2023" },
+    { "sector": "Healthcare", "annualGrowthPct": 3.8, "source": "ILO ILOSTAT 2023" }
+  ]
+}

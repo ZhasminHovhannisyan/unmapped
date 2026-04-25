@@ -1,0 +1,50 @@
+{
+  "_source": "Wittgenstein Centre for Demography and Global Human Capital (2023). Education Level Projections 2025–2035. Population aged 25+.",
+  "_url": "https://dataexplorer.wittgensteincentre.org/",
+  "_year": 2023,
+  "_note": "Shares are proportions (0–1) of adult population (25+) by highest educational attainment. Projections use SSP2 (middle-of-road) scenario.",
+  "countries": {
+    "ghana": {
+      "name": "Ghana",
+      "region": "Sub-Saharan Africa",
+      "2025": {
+        "noEducation": 0.22,
+        "primary": 0.18,
+        "lowerSecondary": 0.20,
+        "upperSecondary": 0.28,
+        "postSecondary": 0.06,
+        "tertiary": 0.06
+      },
+      "2035": {
+        "noEducation": 0.14,
+        "primary": 0.15,
+        "lowerSecondary": 0.20,
+        "upperSecondary": 0.33,
+        "postSecondary": 0.10,
+        "tertiary": 0.08
+      },
+      "insight": "Upper secondary attainment is projected to grow by 5pp by 2035 — but tertiary remains low, constraining access to formal sector jobs without skills bridge programs."
+    },
+    "bangladesh": {
+      "name": "Bangladesh",
+      "region": "South Asia",
+      "2025": {
+        "noEducation": 0.28,
+        "primary": 0.22,
+        "lowerSecondary": 0.24,
+        "upperSecondary": 0.17,
+        "postSecondary": 0.05,
+        "tertiary": 0.04
+      },
+      "2035": {
+        "noEducation": 0.18,
+        "primary": 0.19,
+        "lowerSecondary": 0.27,
+        "upperSecondary": 0.23,
+        "postSecondary": 0.08,
+        "tertiary": 0.05
+      },
+      "insight": "No-education share falls sharply, but upper secondary still reaches only 23% by 2035 — a skills gap that RMG sector automation will widen significantly without intervention."
+    }
+  }
+}

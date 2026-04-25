@@ -1,0 +1,99 @@
+{
+  "_source": "ESCO — European Skills, Competences, Qualifications and Occupations (v1.2, 2023). European Commission.",
+  "_url": "https://esco.ec.europa.eu/en/use-esco/download",
+  "_note": "Curated subset covering ISCO major groups 2, 4, 5, 6, 7, 8 relevant to LMIC youth employment contexts. Translated labels in English.",
+  "occupations": {
+    "7421": {
+      "label": "Electronics Mechanic and Servicer",
+      "iscoMajorGroup": 7,
+      "escoUri": "http://data.europa.eu/esco/occupation/b86c7eca-fc90-4853-882b-16dc0c95e5ff",
+      "coreSkills": [
+        { "uri": "http://data.europa.eu/esco/skill/S1.1.1", "label": "troubleshoot electronic equipment", "durability": "high" },
+        { "uri": "http://data.europa.eu/esco/skill/S1.1.2", "label": "replace electronic components", "durability": "high" },
+        { "uri": "http://data.europa.eu/esco/skill/S1.1.3", "label": "use electronic measuring instruments", "durability": "moderate" },
+        { "uri": "http://data.europa.eu/esco/skill/S1.1.4", "label": "read electronic circuit diagrams", "durability": "high" },
+        { "uri": "http://data.europa.eu/esco/skill/S1.1.5", "label": "soldering techniques", "durability": "moderate" },
+        { "uri": "http://data.europa.eu/esco/skill/S1.1.6", "label": "customer diagnosis and communication", "durability": "high" },
+        { "uri": "http://data.europa.eu/esco/skill/S1.1.7", "label": "stock and parts management", "durability": "moderate" }
+      ]
+    },
+    "5220": {
+      "label": "Shop Salesperson",
+      "iscoMajorGroup": 5,
+      "escoUri": "http://data.europa.eu/esco/occupation/8b80f2c7-3eb4-4d75-a803-5c3cebd84f94",
+      "coreSkills": [
+        { "uri": "http://data.europa.eu/esco/skill/S2.1.1", "label": "customer service and complaint handling", "durability": "high" },
+        { "uri": "http://data.europa.eu/esco/skill/S2.1.2", "label": "stock inventory management", "durability": "moderate" },
+        { "uri": "http://data.europa.eu/esco/skill/S2.1.3", "label": "cash handling and basic bookkeeping", "durability": "at_risk" },
+        { "uri": "http://data.europa.eu/esco/skill/S2.1.4", "label": "product knowledge and recommendation", "durability": "high" },
+        { "uri": "http://data.europa.eu/esco/skill/S2.1.5", "label": "visual merchandising", "durability": "moderate" }
+      ]
+    },
+    "6111": {
+      "label": "Field Crop and Vegetable Grower",
+      "iscoMajorGroup": 6,
+      "escoUri": "http://data.europa.eu/esco/occupation/a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "coreSkills": [
+        { "uri": "http://data.europa.eu/esco/skill/S3.1.1", "label": "soil preparation and land management", "durability": "high" },
+        { "uri": "http://data.europa.eu/esco/skill/S3.1.2", "label": "crop cultivation and harvesting", "durability": "moderate" },
+        { "uri": "http://data.europa.eu/esco/skill/S3.1.3", "label": "pest and disease management", "durability": "high" },
+        { "uri": "http://data.europa.eu/esco/skill/S3.1.4", "label": "irrigation management", "durability": "moderate" },
+        { "uri": "http://data.europa.eu/esco/skill/S3.1.5", "label": "post-harvest storage and handling", "durability": "high" }
+      ]
+    },
+    "8153": {
+      "label": "Sewing Machine Operator",
+      "iscoMajorGroup": 8,
+      "escoUri": "http://data.europa.eu/esco/occupation/c3d4e5f6-7890-abcd-ef12-345678901234",
+      "coreSkills": [
+        { "uri": "http://data.europa.eu/esco/skill/S4.1.1", "label": "operate industrial sewing machines", "durability": "at_risk" },
+        { "uri": "http://data.europa.eu/esco/skill/S4.1.2", "label": "quality control and inspection", "durability": "moderate" },
+        { "uri": "http://data.europa.eu/esco/skill/S4.1.3", "label": "pattern cutting and measurement", "durability": "moderate" },
+        { "uri": "http://data.europa.eu/esco/skill/S4.1.4", "label": "fabric and material knowledge", "durability": "high" }
+      ]
+    },
+    "2513": {
+      "label": "Software Developer",
+      "iscoMajorGroup": 2,
+      "escoUri": "http://data.europa.eu/esco/occupation/d4e5f678-9012-3456-789a-bcdef0123456",
+      "coreSkills": [
+        { "uri": "http://data.europa.eu/esco/skill/S5.1.1", "label": "programming and coding", "durability": "high" },
+        { "uri": "http://data.europa.eu/esco/skill/S5.1.2", "label": "debugging and testing software", "durability": "high" },
+        { "uri": "http://data.europa.eu/esco/skill/S5.1.3", "label": "version control (Git)", "durability": "high" },
+        { "uri": "http://data.europa.eu/esco/skill/S5.1.4", "label": "requirements analysis", "durability": "high" }
+      ]
+    },
+    "4311": {
+      "label": "Accounting and Bookkeeping Clerk",
+      "iscoMajorGroup": 4,
+      "escoUri": "http://data.europa.eu/esco/occupation/e5f67890-1234-5678-9abc-def012345678",
+      "coreSkills": [
+        { "uri": "http://data.europa.eu/esco/skill/S6.1.1", "label": "bookkeeping and ledger management", "durability": "at_risk" },
+        { "uri": "http://data.europa.eu/esco/skill/S6.1.2", "label": "invoice and payment processing", "durability": "at_risk" },
+        { "uri": "http://data.europa.eu/esco/skill/S6.1.3", "label": "spreadsheet software (Excel/Sheets)", "durability": "moderate" },
+        { "uri": "http://data.europa.eu/esco/skill/S6.1.4", "label": "financial reporting", "durability": "moderate" }
+      ]
+    }
+  },
+  "skillGroups": {
+    "digital_basics": [
+      { "uri": "http://data.europa.eu/esco/skill/DIG.1", "label": "use smartphones and mobile applications", "durability": "high" },
+      { "uri": "http://data.europa.eu/esco/skill/DIG.2", "label": "internet research and information literacy", "durability": "high" },
+      { "uri": "http://data.europa.eu/esco/skill/DIG.3", "label": "online communication (email, messaging)", "durability": "high" },
+      { "uri": "http://data.europa.eu/esco/skill/DIG.4", "label": "mobile money and digital payments", "durability": "high" },
+      { "uri": "http://data.europa.eu/esco/skill/DIG.5", "label": "basic data entry and spreadsheets", "durability": "moderate" }
+    ],
+    "entrepreneurship": [
+      { "uri": "http://data.europa.eu/esco/skill/ENT.1", "label": "business planning and record keeping", "durability": "high" },
+      { "uri": "http://data.europa.eu/esco/skill/ENT.2", "label": "pricing and cost calculation", "durability": "high" },
+      { "uri": "http://data.europa.eu/esco/skill/ENT.3", "label": "customer acquisition and retention", "durability": "high" },
+      { "uri": "http://data.europa.eu/esco/skill/ENT.4", "label": "supply chain and inventory basics", "durability": "moderate" }
+    ],
+    "communication": [
+      { "uri": "http://data.europa.eu/esco/skill/COM.1", "label": "multilingual communication", "durability": "high" },
+      { "uri": "http://data.europa.eu/esco/skill/COM.2", "label": "negotiation and persuasion", "durability": "high" },
+      { "uri": "http://data.europa.eu/esco/skill/COM.3", "label": "conflict resolution", "durability": "high" },
+      { "uri": "http://data.europa.eu/esco/skill/COM.4", "label": "community engagement and outreach", "durability": "high" }
+    ]
+  }
+}

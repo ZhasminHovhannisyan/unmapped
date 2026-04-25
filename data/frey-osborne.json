@@ -1,0 +1,79 @@
+{
+  "_source": "Frey, C.B. & Osborne, M.A. (2013). The Future of Employment. University of Oxford. Appendix table mapped to ISCO-08 major groups.",
+  "_note": "Original scores are for US occupational context. LMIC adjustment applied separately via automationCalibration in country config.",
+  "_url": "https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf",
+  "_year": 2013,
+  "byIscoMajorGroup": {
+    "1": {
+      "label": "Managers",
+      "rawScore": 0.25,
+      "representativeOccupations": ["General Manager", "Enterprise Manager", "NGO Director"],
+      "notes": "Managerial judgment and social coordination resist automation"
+    },
+    "2": {
+      "label": "Professionals",
+      "rawScore": 0.22,
+      "representativeOccupations": ["IT Professional", "Teacher", "Nurse", "Accountant"],
+      "notes": "Cognitive and social complexity; lower risk"
+    },
+    "3": {
+      "label": "Technicians and Associate Professionals",
+      "rawScore": 0.40,
+      "representativeOccupations": ["ICT Technician", "Health Technician", "Sales Supervisor"],
+      "notes": "Moderate risk; many tasks routine but require physical presence"
+    },
+    "4": {
+      "label": "Clerical Support Workers",
+      "rawScore": 0.72,
+      "representativeOccupations": ["Data Entry Clerk", "Cashier", "Office Assistant"],
+      "notes": "High routine cognitive task content — high automation exposure"
+    },
+    "5": {
+      "label": "Service and Sales Workers",
+      "rawScore": 0.48,
+      "representativeOccupations": ["Market Trader", "Food Service Worker", "Community Health Worker"],
+      "notes": "Variable; customer-facing and care roles more resilient"
+    },
+    "6": {
+      "label": "Skilled Agricultural, Forestry and Fishery Workers",
+      "rawScore": 0.55,
+      "representativeOccupations": ["Subsistence Farmer", "Fisher", "Livestock Keeper"],
+      "notes": "Mechanisation risk but LMIC infrastructure limits near-term displacement"
+    },
+    "7": {
+      "label": "Craft and Related Trades Workers",
+      "rawScore": 0.52,
+      "representativeOccupations": ["Electronics Repair Tech", "Welder", "Seamstress", "Mason"],
+      "notes": "Manual dexterity tasks; relatively protected in LMIC settings"
+    },
+    "8": {
+      "label": "Plant and Machine Operators, Assemblers",
+      "rawScore": 0.68,
+      "representativeOccupations": ["Machine Operator", "Garment Assembler", "Driver"],
+      "notes": "Routine physical; garment sector particularly exposed long-term"
+    },
+    "9": {
+      "label": "Elementary Occupations",
+      "rawScore": 0.78,
+      "representativeOccupations": ["Street Vendor", "Domestic Worker", "Labourer"],
+      "notes": "Highest routine manual content — but LMIC wage levels delay automation investment"
+    }
+  },
+  "byIscoCode": {
+    "7421": { "label": "Electronics Mechanics and Servicers", "rawScore": 0.36, "iscoMajorGroup": 7 },
+    "5220": { "label": "Shop Salespersons", "rawScore": 0.54, "iscoMajorGroup": 5 },
+    "6111": { "label": "Field Crop and Vegetable Growers", "rawScore": 0.54, "iscoMajorGroup": 6 },
+    "7111": { "label": "House Builders", "rawScore": 0.52, "iscoMajorGroup": 7 },
+    "8322": { "label": "Car, Taxi and Van Drivers", "rawScore": 0.71, "iscoMajorGroup": 8 },
+    "5120": { "label": "Cooks", "rawScore": 0.44, "iscoMajorGroup": 5 },
+    "4311": { "label": "Accounting and Bookkeeping Clerks", "rawScore": 0.82, "iscoMajorGroup": 4 },
+    "3313": { "label": "Accounting Associate Professionals", "rawScore": 0.65, "iscoMajorGroup": 3 },
+    "2513": { "label": "Software Developers", "rawScore": 0.04, "iscoMajorGroup": 2 },
+    "2352": { "label": "Special Needs Teachers", "rawScore": 0.04, "iscoMajorGroup": 2 },
+    "8153": { "label": "Sewing Machine Operators", "rawScore": 0.83, "iscoMajorGroup": 8 },
+    "7322": { "label": "Printing Trades Workers", "rawScore": 0.62, "iscoMajorGroup": 7 },
+    "5414": { "label": "Security Guards", "rawScore": 0.58, "iscoMajorGroup": 5 },
+    "9112": { "label": "Domestic Cleaners and Helpers", "rawScore": 0.66, "iscoMajorGroup": 9 },
+    "3721": { "label": "ICT User Support Technicians", "rawScore": 0.48, "iscoMajorGroup": 3 }
+  }
+}
