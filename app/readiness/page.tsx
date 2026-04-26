@@ -65,9 +65,11 @@ export default function ReadinessPage() {
   const risk = useMemo(() => {
     if (!currentProfile) return null;
     const config = getCountryConfig(currentProfile.countryId);
-    const wData = (wittgensteinData.countries as Record<string, typeof wittgensteinData.countries.ghana>)[
-      currentProfile.countryId
-    ];
+    const countries = wittgensteinData.countries as Record<
+      string,
+      typeof wittgensteinData.countries.ghana
+    >;
+    const wData = countries[currentProfile.countryId] ?? countries.ghana;
     const projection = {
       country: config.name,
       year2025: wData["2025"],

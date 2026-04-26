@@ -51,9 +51,12 @@ export const useAppStore = create<AppStore>()(
     }),
     {
       name: "unmapped-store",
-      onRehydrateStorage: () => () => {
-        useAppStore.setState({ hasHydrated: true });
-      },
+      partialize: (state) => ({
+        currentCountryId: state.currentCountryId,
+        currentProfile: state.currentProfile,
+        currentFormData: state.currentFormData,
+        sessionProfiles: state.sessionProfiles,
+      }),
     }
   )
 );
