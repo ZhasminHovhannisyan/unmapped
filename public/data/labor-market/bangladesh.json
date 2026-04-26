@@ -8,43 +8,43 @@
   "econSignals": [
     {
       "signalType": "sector_growth",
-      "label": "Fastest Growing Sector: ICT / Freelancing",
-      "value": 14.6,
+      "label": "Fastest Growing Sector: ICT Freelancing & Digital Services",
+      "value": 8.7,
       "unit": "% annual employment growth (2018–2023)",
       "source": "ILO ILOSTAT / ITU 2023",
       "sourceUrl": "https://ilostat.ilo.org/",
       "year": 2023,
-      "description": "Bangladesh is the world's 2nd largest freelancing workforce. ICT freelancing grew at 14.6% annually 2018–2023, with Upwork and Fiverr among primary platforms."
+      "description": "Freelance and digital services employment grew at an estimated 8.7% annually over 2018–2023 — the fastest-expanding entry path for skilled youth in urban Bangladesh."
     },
     {
       "signalType": "sector_growth",
-      "label": "Light Manufacturing (non-RMG) Growth",
-      "value": 5.2,
+      "label": "Second: RMG & Garments",
+      "value": 4.1,
       "unit": "% annual employment growth (2018–2023)",
       "source": "ILO ILOSTAT",
       "sourceUrl": "https://ilostat.ilo.org/",
       "year": 2023,
-      "description": "Footwear, leather goods, and jute products are growing segments with strong export demand. Offer more automation resilience than garments."
+      "description": "Ready-made garments remains a major employer with resilient export demand; employment growth is slower than ICT but still positive at an estimated 4.1% annually."
     },
     {
       "signalType": "wage_floor",
       "label": "Median Monthly Earnings — ICT / Freelancing",
-      "value": 240,
+      "value": 210,
       "unit": "USD/month (median)",
       "source": "ILO ILOSTAT / World Bank WDI",
       "sourceUrl": "https://ilostat.ilo.org/",
       "year": 2023,
-      "description": "Entry-level ICT/freelancing workers in Dhaka earn a median of ~BDT 28,000/month ($240 USD). Range: $120–$600 depending on skill level and platform."
+      "description": "ICT and freelancing workers in Dhaka and Chittagong report typical monthly earnings near $210 USD median, with a wide range ($120–$480) by platform and skill."
     },
     {
       "signalType": "wage_floor",
       "label": "Median Monthly Earnings — RMG (Garments)",
-      "value": 110,
+      "value": 95,
       "unit": "USD/month (median)",
       "source": "ILO ILOSTAT",
       "sourceUrl": "https://ilostat.ilo.org/",
       "year": 2023,
-      "description": "Garment workers earn a median of ~BDT 13,500/month ($110). The NMW is $95/month (BDT 12,500). Highly routine task content makes this sector a medium-term automation risk."
+      "description": "Garment sector earnings cluster around the statutory floor with median take-home near $95 USD/month; observed range about $75–$130 with overtime."
     },
     {
       "signalType": "returns_to_education",
@@ -59,12 +59,12 @@
     {
       "signalType": "neet_rate",
       "label": "Youth NEET Rate (not in education, employment, or training)",
-      "value": 32.1,
+      "value": 31.2,
       "unit": "% of youth 15–24",
       "source": "World Bank WDI (SL.UEM.NEET.ZS)",
       "sourceUrl": "https://data.worldbank.org/indicator/SL.UEM.NEET.ZS",
       "year": 2022,
-      "description": "Nearly 1 in 3 Bangladeshi youth are NEET — disproportionately young women, particularly in rural areas. This represents 9+ million young people with unrecognised skills."
+      "description": "Roughly three in ten Bangladeshi youth 15–24 are NEET — a large pool of unmapped skills if credentialing and matching stay informal."
     },
     {
       "signalType": "employment_growth",
@@ -78,20 +78,20 @@
     }
   ],
   "wageRangesBySector": {
-    "garments_rmd":     { "min": 95,  "max": 180, "median": 110, "currency": "USD", "year": 2023 },
-    "agriculture_crop": { "min": 55,  "max": 140, "median": 85,  "currency": "USD", "year": 2023 },
-    "construction":     { "min": 90,  "max": 260, "median": 155, "currency": "USD", "year": 2023 },
-    "trade_retail":     { "min": 70,  "max": 220, "median": 120, "currency": "USD", "year": 2023 },
-    "transport":        { "min": 80,  "max": 200, "median": 130, "currency": "USD", "year": 2023 },
-    "ict_services":     { "min": 120, "max": 600, "median": 240, "currency": "USD", "year": 2023 },
-    "health_pharma":    { "min": 100, "max": 280, "median": 165, "currency": "USD", "year": 2023 },
-    "finance_mfs":      { "min": 110, "max": 290, "median": 175, "currency": "USD", "year": 2023 },
-    "food_processing":  { "min": 75,  "max": 200, "median": 115, "currency": "USD", "year": 2023 },
-    "domestic_care":    { "min": 50,  "max": 130, "median": 80,  "currency": "USD", "year": 2023 }
+    "garments_rmd": { "min": 75, "max": 130, "median": 95, "currency": "USD", "year": 2023 },
+    "agriculture_crop": { "min": 55, "max": 140, "median": 85, "currency": "USD", "year": 2023 },
+    "construction": { "min": 90, "max": 260, "median": 155, "currency": "USD", "year": 2023 },
+    "trade_retail": { "min": 70, "max": 220, "median": 120, "currency": "USD", "year": 2023 },
+    "transport": { "min": 80, "max": 200, "median": 130, "currency": "USD", "year": 2023 },
+    "ict_services": { "min": 120, "max": 480, "median": 210, "currency": "USD", "year": 2023 },
+    "health_pharma": { "min": 100, "max": 280, "median": 165, "currency": "USD", "year": 2023 },
+    "finance_mfs": { "min": 110, "max": 290, "median": 175, "currency": "USD", "year": 2023 },
+    "food_processing": { "min": 75, "max": 200, "median": 115, "currency": "USD", "year": 2023 },
+    "domestic_care": { "min": 50, "max": 130, "median": 80, "currency": "USD", "year": 2023 }
   },
   "sectorGrowthRanking": [
-    { "sector": "ICT / Freelancing", "annualGrowthPct": 14.6, "source": "ILO ILOSTAT / ITU 2023" },
-    { "sector": "Light Manufacturing", "annualGrowthPct": 5.2, "source": "ILO ILOSTAT 2023" },
+    { "sector": "ICT Freelancing & Digital Services", "annualGrowthPct": 8.7, "source": "ILO ILOSTAT / ITU 2023" },
+    { "sector": "RMG & Garments", "annualGrowthPct": 4.1, "source": "ILO ILOSTAT 2023" },
     { "sector": "Healthcare", "annualGrowthPct": 4.8, "source": "ILO ILOSTAT 2023" },
     { "sector": "Agro-processing", "annualGrowthPct": 4.1, "source": "ILO ILOSTAT 2023" },
     { "sector": "Financial Services (MFS)", "annualGrowthPct": 3.9, "source": "World Bank WDI 2023" }

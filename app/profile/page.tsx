@@ -5,7 +5,16 @@ import { SkillsProfileCard } from "@/components/SkillsProfileCard";
 import { SourceBadge } from "@/components/SourceBadge";
 
 export default function ProfilePage() {
-  const { currentProfile } = useAppStore();
+  const { currentProfile, hasHydrated } = useAppStore();
+
+  if (!hasHydrated) {
+    return (
+      <main className="max-w-4xl mx-auto px-4 py-16">
+        <div className="h-10 w-64 bg-slate-200 rounded animate-pulse mb-6" />
+        <div className="h-96 bg-slate-100 rounded-xl animate-pulse" />
+      </main>
+    );
+  }
 
   if (currentProfile) {
     return (

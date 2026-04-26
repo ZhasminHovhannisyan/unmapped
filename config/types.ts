@@ -74,9 +74,13 @@ export interface SkillsProfile {
   userId?: string;
   createdAt: string;
   countryId: string;
+  /** Age at time of profile creation (from wizard). */
+  age?: number;
   iscoCode: string;
   iscoTitle: string;
   iscoMajorGroup: number;
+  /** ESCO occupation URI when mapped (e.g. from occupation taxonomy). */
+  escoOccupationUri?: string;
   escoSkills: ESCOSkill[];
   softSkills: string[];
   informalAssets: string[];

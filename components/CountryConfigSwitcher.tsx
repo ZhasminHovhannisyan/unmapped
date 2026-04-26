@@ -3,8 +3,6 @@ import { useAppStore } from "@/lib/store";
 import { countryConfigs } from "@/config/countries";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
-import type { SkillsProfile } from "@/config/types";
-
 export function CountryConfigSwitcher() {
   const { currentCountryId, setCurrentCountryId, setCurrentProfile } = useAppStore();
   const router = useRouter();
@@ -14,9 +12,7 @@ export function CountryConfigSwitcher() {
   function handleSwitch(id: string) {
     if (id === currentCountryId) return;
     setCurrentCountryId(id);
-    // Clear profile so the new country context is clean; no router.refresh()
-    // needed — all components react to the Zustand store update directly.
-    setCurrentProfile(null as unknown as SkillsProfile);
+    setCurrentProfile(null);
     router.push("/profile");
   }
 

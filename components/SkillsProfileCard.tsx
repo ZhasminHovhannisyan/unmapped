@@ -1,10 +1,12 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Download } from "lucide-react";
 import { SourceBadge } from "./SourceBadge";
 import { cn } from "@/lib/utils";
 import type { SkillsProfile, ESCOSkill } from "@/config/types";
 import { useAppStore } from "@/lib/store";
+import { getCountryConfig } from "@/lib/country-config";
 
 interface SkillsProfileCardProps {
   profile: SkillsProfile;
@@ -28,8 +30,39 @@ export function SkillsProfileCard({ profile }: SkillsProfileCardProps) {
     });
   }
 
+  function handleDownloadJson() {
+    const config = getCountryConfig(profile.countryId);
+    const sectorObj = config.sectorClassification.find((s) => s.id === profile.sector);
+    const skillsList = [...profile.escoSkills.map((s) => s.label), ...profile.softSkills];
+    const hostname = typeof window !== "undefined" ? window.location.host : "unmapped";
+    const payload = {
+      generatedBy: `UNMAPPED — ${hostname}`,
+      generatedAt: new Date().toISOString(),
+      context: `${config.name}, ${config.region}`,
+      profile: {
+        age: profile.age ?? null,
+        educationLevel: profile.educationLevel.localLabel,
+        isced: profile.educationLevel.isced,
+        sector: sectorObj?.localLabel ?? profile.sector,
+        isco08Code: profile.iscoCode,
+        isco08Label: profile.iscoTitle,
+        escoURI: profile.escoOccupationUri ?? "",
+        skills: skillsList,
+        portabilityNote:
+          "This profile is mapped to ISCO-08 and ESCO v1.2 international standards and is portable across borders and sectors.",
+      },
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "unmapped-skills-profile.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
   function handleReset() {
-    setCurrentProfile(null as unknown as SkillsProfile);
+    setCurrentProfile(null);
     router.push("/profile");
   }
 
@@ -155,7 +188,13 @@ export function SkillsProfileCard({ profile }: SkillsProfileCardProps) {
       {/* Education */}
       <div className="bg-white rounded-2xl border border-slate-200 p-5">
         <h3 className="font-semibold text-slate-900 mb-2 text-sm">Education & Context</h3>
-        <div className="grid sm:grid-cols-3 gap-3 text-sm">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
+          {profile.age != null && (
+            <div className="bg-slate-50 rounded-lg p-3">
+              <p className="text-slate-500 text-xs mb-1">Age</p>
+              <p className="font-semibold text-slate-800">{profile.age}</p>
+            </div>
+          )}
           <div className="bg-slate-50 rounded-lg p-3">
             <p className="text-slate-500 text-xs mb-1">Education Level</p>
             <p className="font-semibold text-slate-800">{profile.educationLevel.localLabel}</p>
@@ -182,12 +221,25 @@ export function SkillsProfileCard({ profile }: SkillsProfileCardProps) {
           See My AI Readiness →
         </Link>
         <button
+          type="button"
+          onClick={handleDownloadJson}
+          className="inline-flex items-center gap-2 px-5 py-2.5 border border-slate-300 text-slate-700 rounded-xl text-sm font-medium hover:bg-slate-50 transition-colors"
+        >
+          <Download className="w-4 h-4 shrink-0" aria-hidden />
+          Download Skills Profile (JSON)
+        </button>
+        <button
+          type="button"
           onClick={handleShareLink}
           className="px-5 py-2.5 border border-slate-300 text-slate-700 rounded-xl text-sm font-medium hover:bg-slate-50 transition-colors"
         >
           Copy Shareable Link
         </button>
       </div>
+      <p className="text-xs text-slate-500 max-w-xl">
+        Your profile is mapped to international standards (ISCO-08, ESCO v1.2) — shareable with any employer, NGO, or
+        training provider.
+      </p>
     </div>
   );
 }

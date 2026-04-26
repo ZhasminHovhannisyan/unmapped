@@ -15,20 +15,26 @@ export function getIscoMajorGroupFromSector(sectorId: string, countryId: string)
   return sector?.iscoMajorGroup ?? 5;
 }
 
-export function getSkillsForSector(sectorId: string): ESCOSkill[] {
-  // Map sector IDs to occupation ISCO codes
-  const sectorToIsco: Record<string, string> = {
-    ict_repair: "7421",
-    trade_retail: "5220",
-    agriculture: "6111",
-    agriculture_crop: "6111",
-    garments_rmd: "8153",
-    ict_services: "2513",
-    finance_mobile: "4311",
-    finance_mfs: "4311",
-  };
+const SECTOR_TO_ISCO: Record<string, string> = {
+  ict_repair: "7421",
+  trade_retail: "5220",
+  agriculture: "6111",
+  agriculture_crop: "6111",
+  garments_rmd: "8153",
+  ict_services: "2513",
+  finance_mobile: "4311",
+  finance_mfs: "4311",
+};
 
-  const iscoCode = sectorToIsco[sectorId];
+export function getEscoOccupationUriForSector(sectorId: string): string | undefined {
+  const code = SECTOR_TO_ISCO[sectorId];
+  if (!code) return undefined;
+  const occupation = (escoData.occupations as Record<string, ESCOOccupation>)[code];
+  return occupation?.escoUri;
+}
+
+export function getSkillsForSector(sectorId: string): ESCOSkill[] {
+  const iscoCode = SECTOR_TO_ISCO[sectorId];
   const occupation = iscoCode
     ? (escoData.occupations as Record<string, ESCOOccupation>)[iscoCode]
     : null;
@@ -96,9 +102,11 @@ export function buildLocalProfile(
   return {
     createdAt: new Date().toISOString(),
     countryId: formData.countryId,
+    age: formData.age,
     iscoCode,
     iscoTitle: aiResult.iscoTitle,
     iscoMajorGroup,
+    escoOccupationUri: getEscoOccupationUriForSector(formData.sectorId),
     escoSkills: aiResult.escoSkills,
     softSkills: aiResult.softSkills,
     informalAssets: aiResult.informalAssets,
@@ -119,16 +127,20 @@ export function buildFallbackProfile(formData: WizardFormData): SkillsProfile {
 
   const sector = config.sectorClassification.find((s) => s.id === formData.sectorId);
   const iscoMajorGroup = sector?.iscoMajorGroup ?? 5;
-  const iscoCode = `${iscoMajorGroup}000`;
+  const iscoCode =
+    SECTOR_TO_ISCO[formData.sectorId] ?? `${iscoMajorGroup}000`;
 
   const escoSkills = getSkillsForSector(formData.sectorId);
+  const escoOccupationUri = getEscoOccupationUriForSector(formData.sectorId);
 
   return {
     createdAt: new Date().toISOString(),
     countryId: formData.countryId,
+    age: formData.age,
     iscoCode,
     iscoTitle: formData.jobTitle || sector?.localLabel || "Service and Sales Worker",
     iscoMajorGroup,
+    escoOccupationUri,
     escoSkills: escoSkills.map((s) => ({ ...s, proficiencyEstimate: "intermediate" as const })),
     softSkills: ["problem-solving", "customer communication", "self-direction", "adaptability"],
     informalAssets: formData.freeTextSkills

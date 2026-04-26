@@ -8,6 +8,8 @@ import { SourceBadge } from "@/components/SourceBadge";
 import { cn } from "@/lib/utils";
 import type { OpportunityMatchResult, OpportunityMatch } from "@/config/types";
 
+import { PROTOTYPE_ECON_DISCLAIMER } from "@/lib/prototype-disclaimer";
+
 const oppTypeLabels: Record<string, string> = {
   formal_employment: "Formal Employment",
   self_employment: "Self-Employment",
@@ -25,7 +27,7 @@ const oppTypeColors: Record<string, string> = {
 };
 
 export default function OpportunitiesPage() {
-  const { currentProfile } = useAppStore();
+  const { currentProfile, hasHydrated } = useAppStore();
   const [result, setResult] = useState<OpportunityMatchResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [openPathway, setOpenPathway] = useState<string | null>(null);
@@ -42,6 +44,15 @@ export default function OpportunitiesPage() {
       .then((data: OpportunityMatchResult) => setResult(data))
       .finally(() => setLoading(false));
   }, [currentProfile]);
+
+  if (!hasHydrated) {
+    return (
+      <main className="max-w-3xl mx-auto px-4 py-16">
+        <div className="h-8 w-56 bg-slate-200 rounded animate-pulse mb-6" />
+        <div className="h-48 bg-slate-100 rounded-xl animate-pulse" />
+      </main>
+    );
+  }
 
   if (!currentProfile) {
     return (
@@ -203,6 +214,8 @@ export default function OpportunitiesPage() {
       </div>
 
       <HonestLimitsCallout message="These matches are based on your ISCO occupational group and local labor market data from ILO ILOSTAT (2023). Match scores are algorithmic estimates, not guarantees. Wage ranges reflect medians — individual earnings vary significantly by location, network, and skill level. Opportunity types are filtered by what is realistic in your country context." />
+
+      <p className="text-xs text-slate-500 italic leading-relaxed">{PROTOTYPE_ECON_DISCLAIMER}</p>
 
       <div className="flex gap-3">
         <Link href="/dashboard" className="px-5 py-2.5 bg-blue-600 text-white rounded-xl text-sm font-semibold hover:bg-blue-700 transition-colors">

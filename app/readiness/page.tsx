@@ -9,6 +9,14 @@ import { HonestLimitsCallout } from "@/components/HonestLimitsCallout";
 import { SourceBadge } from "@/components/SourceBadge";
 import { RiskGauge } from "@/components/RiskGauge";
 import wittgensteinData from "@/data/wittgenstein-projections.json";
+import { getEducationLandscapeShift } from "@/lib/education-landscape";
+import {
+  getSectorAutomationExposure,
+  LMIC_SECTOR_AVERAGE_SCORE,
+  type ExposureColor,
+} from "@/lib/sector-automation-exposure";
+import { getDurableSkillsDisplay } from "@/lib/durable-skills";
+import { PROTOTYPE_ECON_DISCLAIMER } from "@/lib/prototype-disclaimer";
 
 const TaskBreakdownChart = dynamic(
   () => import("@/components/TaskBreakdownChart").then((m) => m.TaskBreakdownChart),
@@ -19,13 +27,47 @@ const WittgensteinChart = dynamic(
   { ssr: false, loading: () => <div className="h-[220px] bg-slate-100 rounded-lg animate-pulse" /> }
 );
 
+function exposureBarColor(c: ExposureColor): string {
+  if (c === "green") return "bg-emerald-500";
+  if (c === "red") return "bg-red-500";
+  return "bg-amber-500";
+}
+
+function ExposureBarRow({
+  label,
+  score,
+  color,
+}: {
+  label: string;
+  score: number;
+  color: ExposureColor;
+}) {
+  const pct = Math.round(score * 100);
+  return (
+    <div className="mb-4 last:mb-0">
+      <div className="flex justify-between text-xs text-slate-600 mb-1">
+        <span className="font-medium text-slate-800">{label}</span>
+        <span className="tabular-nums">{(score * 100).toFixed(0)}%</span>
+      </div>
+      <div className="h-3 rounded-full bg-slate-100 overflow-hidden">
+        <div
+          className={`h-full rounded-full transition-all ${exposureBarColor(color)}`}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function ReadinessPage() {
-  const { currentProfile } = useAppStore();
+  const { currentProfile, hasHydrated } = useAppStore();
 
   const risk = useMemo(() => {
     if (!currentProfile) return null;
     const config = getCountryConfig(currentProfile.countryId);
-    const wData = (wittgensteinData.countries as Record<string, typeof wittgensteinData.countries.ghana>)[currentProfile.countryId];
+    const wData = (wittgensteinData.countries as Record<string, typeof wittgensteinData.countries.ghana>)[
+      currentProfile.countryId
+    ];
     const projection = {
       country: config.name,
       year2025: wData["2025"],
@@ -40,7 +82,31 @@ export default function ReadinessPage() {
     );
   }, [currentProfile]);
 
-  if (!currentProfile || !risk) {
+  const landscape = useMemo(() => {
+    if (!currentProfile) return null;
+    return getEducationLandscapeShift(currentProfile.countryId);
+  }, [currentProfile]);
+
+  const sectorExposure = useMemo(() => {
+    if (!currentProfile) return null;
+    return getSectorAutomationExposure(currentProfile.sector);
+  }, [currentProfile]);
+
+  const durableSkills = useMemo(() => {
+    if (!currentProfile) return [];
+    return getDurableSkillsDisplay(currentProfile);
+  }, [currentProfile]);
+
+  if (!hasHydrated) {
+    return (
+      <main className="max-w-3xl mx-auto px-4 py-16">
+        <div className="h-8 w-48 bg-slate-200 rounded animate-pulse mb-4" />
+        <div className="h-40 bg-slate-100 rounded-xl animate-pulse" />
+      </main>
+    );
+  }
+
+  if (!currentProfile || !risk || !landscape || !sectorExposure) {
     return (
       <main className="max-w-3xl mx-auto px-4 py-16 text-center">
         <p className="text-slate-500 mb-4">No skills profile found. Please complete the Skills Wizard first.</p>
@@ -63,7 +129,6 @@ export default function ReadinessPage() {
 
   return (
     <main className="max-w-3xl mx-auto px-4 py-10 space-y-8">
-      {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-slate-900 mb-1">AI Readiness & Displacement Risk</h1>
         <p className="text-sm text-slate-500">
@@ -71,7 +136,6 @@ export default function ReadinessPage() {
         </p>
       </div>
 
-      {/* Risk gauge + summary */}
       <div className={`rounded-2xl border p-6 ${rc.bg}`}>
         <div className="flex flex-col sm:flex-row items-center gap-6">
           <RiskGauge score={risk.adjustedScore} riskLabel={risk.riskLabel} />
@@ -91,25 +155,69 @@ export default function ReadinessPage() {
                 source="Frey & Osborne 2013"
                 url="https://www.oxfordmartin.ox.ac.uk/downloads/academic/The_Future_of_Employment.pdf"
               />
-              <SourceBadge
-                source="ILO Task Indices 2023"
-                url="https://ilostat.ilo.org/"
-              />
+              <SourceBadge source="ILO Task Indices 2023" url="https://ilostat.ilo.org/" />
             </div>
           </div>
         </div>
       </div>
 
-      {/* Calibration note */}
+      {/* Automation Exposure Score (sector-calibrated) */}
+      <div className="bg-white rounded-2xl border border-slate-200 p-6">
+        <h2 className="text-base font-bold text-slate-900">Automation Exposure Score</h2>
+        <p className="text-sm text-slate-500 mb-4">
+          Based on Frey & Osborne (2013), calibrated for LMIC task composition.
+        </p>
+        <ExposureBarRow
+          label="Your Skills Profile (sector baseline)"
+          score={sectorExposure.score}
+          color={sectorExposure.color}
+        />
+        <ExposureBarRow label="LMIC Sector Average (manual/trade work)" score={LMIC_SECTOR_AVERAGE_SCORE} color="amber" />
+        <p className="text-xs text-slate-600 mt-3">
+          <span className="font-semibold text-slate-700">Most exposed tasks in your sector: </span>
+          {sectorExposure.atRiskTasks.join(", ")}.
+        </p>
+        <div className="flex flex-wrap gap-2 mt-4">
+          <SourceBadge
+            source="Frey & Osborne 2013"
+            url="https://www.oxfordmartin.ox.ac.uk/downloads/academic/future-of-employment.pdf"
+          />
+          <SourceBadge source="ILO Task Indices" url="https://ilostat.ilo.org/" />
+          <SourceBadge
+            source="World Bank STEP Survey"
+            url="https://microdata.worldbank.org/index.php/catalog/step"
+            tooltip="Skills measurement data from LMIC contexts — direct evidence of skill levels in developing economies."
+          />
+        </div>
+      </div>
+
+      {/* Durable skills */}
+      <div className="bg-white rounded-2xl border border-slate-200 p-6">
+        <h2 className="text-base font-bold text-slate-900 mb-1">Durable Skills</h2>
+        <p className="text-sm text-slate-500 mb-4">
+          Skills in your profile that tend to stay valuable as routine tasks shift.
+        </p>
+        <ul className="space-y-3">
+          {durableSkills.map((s, i) => (
+            <li key={i} className="text-sm">
+              <span className="font-semibold text-slate-900">{s.label}</span>
+              <span className="text-slate-600"> — {s.line}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <div className="bg-slate-50 rounded-xl border border-slate-200 p-4">
         <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Calibration Note</p>
         <p className="text-xs text-slate-600 leading-relaxed">{risk.calibrationNote}</p>
         <p className="text-xs text-slate-500 mt-1">
-          Formula: <code className="font-mono bg-slate-200 px-1 rounded">adjustedRisk = freyOsborneRisk × infrastructureMultiplier × (1 − formalEmploymentShare × 0.3)</code>
+          Formula:{" "}
+          <code className="font-mono bg-slate-200 px-1 rounded">
+            adjustedRisk = freyOsborneRisk × infrastructureMultiplier × (1 − formalEmploymentShare × 0.3)
+          </code>
         </p>
       </div>
 
-      {/* Task breakdown chart */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-base font-bold text-slate-900">Task Content Breakdown</h2>
@@ -121,7 +229,6 @@ export default function ReadinessPage() {
         </p>
       </div>
 
-      {/* Adjacent skills */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
         <h2 className="text-base font-bold text-slate-900 mb-1">Skills That Build Resilience</h2>
         <p className="text-sm text-slate-500 mb-4">
@@ -140,7 +247,9 @@ export default function ReadinessPage() {
                 <p className="text-sm font-semibold text-slate-900 mb-0.5">{skill.label}</p>
                 <p className="text-xs text-slate-600 mb-2">{skill.reason}</p>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs text-slate-500">{skill.estimatedWeeks} weeks · {skill.trainingProvider}</span>
+                  <span className="text-xs text-slate-500">
+                    {skill.estimatedWeeks} weeks · {skill.trainingProvider}
+                  </span>
                   {skill.requiresBroadband && (
                     <span className="px-1.5 py-0.5 text-[10px] bg-amber-100 text-amber-700 rounded border border-amber-200">
                       Requires broadband
@@ -163,28 +272,20 @@ export default function ReadinessPage() {
         </div>
       </div>
 
-      {/* Wittgenstein projections */}
       <div className="bg-white rounded-2xl border border-slate-200 p-6">
         <div className="flex items-center justify-between mb-1">
-          <h2 className="text-base font-bold text-slate-900">Where Your Region Is Heading</h2>
+          <h2 className="text-base font-bold text-slate-900">Education Landscape Shift (2025–2035)</h2>
           <SourceBadge
-            source="Wittgenstein Centre 2023"
-            url="https://dataexplorer.wittgensteincentre.org/"
+            source="Wittgenstein Centre"
+            url="http://www.wittgensteincentre.org/dataexplorer"
           />
         </div>
-        <p className="text-sm text-slate-500 mb-4">
-          Education attainment projections for {risk.wittgensteinProjection.country}, 2025 vs 2035.
-        </p>
-        <WittgensteinChart projection={risk.wittgensteinProjection} />
-        <p className="text-xs text-slate-500 mt-3 italic">
-          {(wittgensteinData.countries as Record<string, { insight: string }>)[currentProfile.countryId]?.insight}
-        </p>
+        <p className="text-sm text-slate-600 mb-4 leading-relaxed">{landscape.sentence}</p>
+        <WittgensteinChart data={landscape.data} countryLabel={landscape.countryLabel} />
       </div>
 
-      {/* Honest limits */}
       <HonestLimitsCallout message="This assessment uses Frey & Osborne (2013) automation scores calibrated for LMIC context using ILO infrastructure and formality data. Automation risk in informal economies is harder to measure than in formal ones — displacement speed is slower where labour is cheaper than capital. Treat this as a directional signal, not a prediction. Source year: 2013 (Frey-Osborne), 2023 (ILO task indices)." />
 
-      {/* CTA */}
       <div className="flex gap-3">
         <Link
           href="/opportunities"
@@ -199,6 +300,8 @@ export default function ReadinessPage() {
           ← Back to Profile
         </Link>
       </div>
+
+      <p className="text-xs text-slate-500 italic leading-relaxed">{PROTOTYPE_ECON_DISCLAIMER}</p>
     </main>
   );
 }

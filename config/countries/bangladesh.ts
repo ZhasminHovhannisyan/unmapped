@@ -13,9 +13,9 @@ const bangladesh: CountryConfig = {
   // World Bank HCI 2020; WDI; ILO; ITU 2023
   humanCapitalIndex: 0.46,
   population15to24M: 29.2,
-  neetRate: 32.1,                  // WDI SL.UEM.NEET.ZS, Bangladesh 2022
-  informalEconomyShare: 0.85,      // ILO ILOSTAT 2022
-  mobileInternetPenetration: 38.7, // ITU 2023
+  neetRate: 31.2,                  // WDI SL.UEM.NEET.ZS, Bangladesh 2022
+  informalEconomyShare: 0.87,    // ILO ILOSTAT 2022
+  mobileInternetPenetration: 38.0, // ITU 2023
   wageFloorUSD: 95,                // Garment sector NMW ~BDT 12,500/month (2023) ≈ USD 95
 
   educationTaxonomy: [
@@ -48,7 +48,7 @@ const bangladesh: CountryConfig = {
   },
 
   laborMarketDataUrl: "/data/labor-market/bangladesh.json",
-  topGrowthSectors: ["ICT & Freelancing", "Light Manufacturing", "Healthcare", "Agro-processing"],
+  topGrowthSectors: ["ICT Freelancing & Digital Services", "RMG & Garments", "Healthcare", "Agro-processing"],
 
   opportunityTypes: ["formal_employment", "self_employment", "gig", "training_pathway", "cooperative"],
 };

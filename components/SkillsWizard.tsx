@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useAppStore } from "@/lib/store";
 import { getCountryConfig } from "@/lib/country-config";
 import { getAllChecklistSkills } from "@/lib/skills-mapping";
+import { getAmaraDemoFormData, getAmaraDemoProfile } from "@/lib/demo-profile";
 import { cn } from "@/lib/utils";
 import type { WizardFormData } from "@/config/types";
 
@@ -22,7 +23,8 @@ const defaultForm: WizardFormData = {
 
 export function SkillsWizard() {
   const router = useRouter();
-  const { currentCountryId, setCurrentFormData } = useAppStore();
+  const { currentCountryId, setCurrentFormData, setCurrentCountryId, setCurrentProfile, addSessionProfile } =
+    useAppStore();
 
   const [step, setStep] = useState(0);
   const [form, setForm] = useState<WizardFormData>({ ...defaultForm, countryId: currentCountryId });
@@ -101,20 +103,14 @@ export function SkillsWizard() {
 
   // Demo quick-fill for judges
   function loadAmaraDemo() {
-    setForm({
-      countryId: currentCountryId,
-      age: 22,
-      educationLevelId: currentCountryId === "bangladesh" ? "ssc" : "shs",
-      sectorId: currentCountryId === "bangladesh" ? "garments_rmd" : "ict_repair",
-      yearsExperience: 5,
-      jobTitle: currentCountryId === "bangladesh" ? "Garment Quality Checker" : "Phone repair technician",
-      freeTextSkills:
-        currentCountryId === "bangladesh"
-          ? "I work in a garments factory checking quality and measurements. I know different fabric types and can identify defects. I also use mobile banking and help my co-workers with phone issues."
-          : "I repair smartphones, tablets and laptops. I diagnose battery, screen, and software problems. I also buy parts in bulk and resell them. I taught myself basic coding from YouTube videos.",
-      selectedCompetencies: [],
-    });
-    setStep(2);
+    const form = getAmaraDemoFormData();
+    const profile = getAmaraDemoProfile();
+    const createdAt = new Date().toISOString();
+    setCurrentCountryId("ghana");
+    setCurrentFormData(form);
+    setCurrentProfile(profile);
+    addSessionProfile({ profile, formData: form, createdAt });
+    router.push("/readiness");
   }
 
   return (
@@ -122,7 +118,7 @@ export function SkillsWizard() {
       {/* Demo shortcut for judges */}
       <div className="mb-4 flex items-center gap-3 p-3 bg-amber-50 border border-amber-200 rounded-xl">
         <span className="text-xs text-amber-700 flex-1">
-          <strong>Demo shortcut:</strong> Load a pre-filled profile (Amara scenario for {config.name}) to skip the wizard.
+          <strong>Demo shortcut:</strong> Load Amara (Ghana, ICT repair) — writes a full profile and opens AI Readiness.
         </span>
         <button
           onClick={loadAmaraDemo}

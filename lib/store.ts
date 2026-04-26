@@ -13,8 +13,11 @@ interface AppStore {
   currentCountryId: string;
   setCurrentCountryId: (id: string) => void;
 
+  hasHydrated: boolean;
+  setHasHydrated: (hydrated: boolean) => void;
+
   currentProfile: SkillsProfile | null;
-  setCurrentProfile: (profile: SkillsProfile) => void;
+  setCurrentProfile: (profile: SkillsProfile | null) => void;
 
   currentFormData: WizardFormData | null;
   setCurrentFormData: (data: WizardFormData) => void;
@@ -29,6 +32,9 @@ export const useAppStore = create<AppStore>()(
     (set) => ({
       currentCountryId: "ghana",
       setCurrentCountryId: (id) => set({ currentCountryId: id }),
+
+      hasHydrated: false,
+      setHasHydrated: (hydrated) => set({ hasHydrated: hydrated }),
 
       currentProfile: null,
       setCurrentProfile: (profile) => set({ currentProfile: profile }),
@@ -45,6 +51,9 @@ export const useAppStore = create<AppStore>()(
     }),
     {
       name: "unmapped-store",
+      onRehydrateStorage: () => () => {
+        useAppStore.setState({ hasHydrated: true });
+      },
     }
   )
 );
